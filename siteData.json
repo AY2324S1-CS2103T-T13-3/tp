@@ -8,7 +8,7 @@
         "about-us": "About Us",
         "project-team": "Project team",
         "benjamin-koh-zhao-hui": "Benjamin Koh Zhao Hui",
-        "jane-doe": "Jane Doe",
+        "lim-jian-yang": "Lim Jian Yang",
         "johnny-doe": "Johnny Doe",
         "jean-doe": "Jean Doe",
         "james-doe": "James Doe"
@@ -141,6 +141,14 @@
     {
       "src": "team/b-enguin.md",
       "title": "Benjamin Koh's Project Portfolio Page",
+      "headings": {
+        "project-homeboss": "Project: HomeBoss"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/jianyangg.md",
+      "title": "Lim Jian Yang's Project Portfolio Page",
       "headings": {
         "project-homeboss": "Project: HomeBoss"
       },
