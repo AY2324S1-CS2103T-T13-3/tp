@@ -11,7 +11,7 @@
         "lim-jian-yang": "Lim Jian Yang",
         "lim-zhong-han": "Lim Zhong Han",
         "julius-gambe": "Julius Gambe",
-        "james-doe": "James Doe"
+        "gabriel-seethor-jun-hao": "Gabriel Seethor Jun Hao"
       },
       "headingKeywords": {}
     },
@@ -153,18 +153,15 @@
       "headingKeywords": {}
     },
     {
+      "src": "team/gabriel4357.md",
+      "headings": {},
+      "headingKeywords": {}
+    },
+    {
       "src": "team/jianyangg.md",
       "title": "Lim Jian Yang's Project Portfolio Page",
       "headings": {
         "project-homeboss": "Project: HomeBoss"
-      },
-      "headingKeywords": {}
-    },
-    {
-      "src": "team/johndoe.md",
-      "title": "John Doe's Project Portfolio Page",
-      "headings": {
-        "project-addressbook-level-3": "Project: AddressBook Level 3"
       },
       "headingKeywords": {}
     },
