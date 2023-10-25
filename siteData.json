@@ -51,6 +51,7 @@
         "storage-component": "Storage component",
         "common-classes": "Common classes",
         "implementation": "Implementation",
+        "user-register-account-command": "User Register Account Command",
         "user-login-command": "User Login Command",
         "user-logout-command": "User Logout Command",
         "proposed-undo-redo-feature": "[Proposed] Undo/redo feature",
