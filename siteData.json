@@ -51,6 +51,7 @@
         "storage-component": "Storage component",
         "common-classes": "Common classes",
         "implementation": "Implementation",
+        "update-delivery-status-feature": "Update Delivery Status Feature",
         "user-register-account-command": "User Register Account Command",
         "user-login-command": "User Login Command",
         "user-logout-command": "User Logout Command",
