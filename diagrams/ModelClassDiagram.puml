@@ -27,8 +27,10 @@ Class ListItem
 Class I #FFFFFF
 }
 
-Class HiddenOutside #FFFFFF
-HiddenOutside .down.> Model
+Class HiddenOutside<<HIDDEN>> #FFFFFF
+HiddenOutside ..> Model
+
+AddressBook .up.|> ReadOnlyAddressBook
 
 Model -right-> ReadOnlyUserPrefs
 Model -left-> ReadOnlyBook
