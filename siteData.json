@@ -133,7 +133,7 @@
         "update-customer-details": "Update customer details",
         "delete-customer": "Delete customer",
         "delivery": "Delivery",
-        "create-delivery": "Create delivery",
+        "add-delivery": "Add delivery",
         "view-all-deliveries": "View all deliveries",
         "view-details-of-deliveries": "View details of deliveries",
         "look-up-delivery-details-coming-soon-in-v1-3": "Look up delivery details [Coming Soon in v1.3]",
