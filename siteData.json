@@ -61,6 +61,8 @@
         "user-login-command": "User Login Command",
         "user-logout-command": "User Logout Command",
         "add-customer-command": "Add Customer Command",
+        "customer-edit-command": "Customer Edit Command",
+        "delivery-add-command": "Delivery Add Command",
         "proposed-undo-redo-feature": "[Proposed] Undo/redo feature",
         "proposed-data-archiving": "[Proposed] Data archiving",
         "documentation-logging-testing-configuration-dev-ops": "Documentation, logging, testing, configuration, dev-ops",
