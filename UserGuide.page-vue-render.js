@@ -335,7 +335,7 @@ with(this){return _c('h2',{attrs:{"id":"delivery-2"}},[_c('span',{staticStyle:{"
 with(this){return _c('h3',{attrs:{"id":"add-delivery"}},[_v("Add delivery"),_c('a',{staticClass:"fa fa-anchor",attrs:{"href":"#add-delivery","onclick":"event.stopPropagation()"}})])}
 },function anonymous(
 ) {
-with(this){return _c('p',[_c('strong',[_v("Format:")]),_v(" "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("delivery add DELIVERY_NAME --customer CUSTOMER_ID --date DELIVERY_DATE")])])}
+with(this){return _c('p',[_c('strong',[_v("Format:")]),_v(" "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("delivery add DELIVERY_NAME --customer CUSTOMER_ID --date EXPECTED_DELIVERY_DATE")])])}
 },function anonymous(
 ) {
 with(this){return _c('p',[_c('strong',[_v("Example:")]),_v(" "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("delivery add furniture --customer 5 --date 2023-12-03")])])}
@@ -350,7 +350,7 @@ with(this){return _c('p',[_c('em',[_v("DELIVERY_NAME:")]),_v(" String of 50 char
 with(this){return _c('p',[_c('em',[_v("CUSTOMER_ID:")]),_v(" Integer")])}
 },function anonymous(
 ) {
-with(this){return _c('p',[_c('em',[_v("DELIVERY_DATE:")]),_v(" Delivery Date String in yyyy-MM-dd format or "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("today")]),_v(" for today’s date")])}
+with(this){return _c('p',[_c('em',[_v("EXPECTED_DELIVERY_DATE:")]),_v(" Expected Delivery Date String in YYYY-MM-DD format or "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("today")]),_v(" for today’s date")])}
 },function anonymous(
 ) {
 with(this){return _c('p',[_c('strong',[_v("Command succeeds:")]),_v(" "),_c('em',[_v("Delivery [1001] furniture created successfully for Customer 1, Gabriel!")])])}
@@ -359,7 +359,7 @@ with(this){return _c('p',[_c('strong',[_v("Command succeeds:")]),_v(" "),_c('em'
 with(this){return _c('p',[_c('strong',[_v("Command fails (missing_fields):")]),_v(" "),_c('em',[_v("Please fill up all the required fields (DELIVERY_NAME --customer CUSTOMER_ID --date\nDELIVERY_DATE)!")])])}
 },function anonymous(
 ) {
-with(this){return _c('p',[_c('strong',[_v("Command fails (invalid_date):")]),_v(" "),_c('em',[_v("Delivery Date cannot be before today!")])])}
+with(this){return _c('p',[_c('strong',[_v("Command fails (invalid_date):")]),_v(" "),_c('em',[_v("Expected Delivery Date cannot be before today!")])])}
 },function anonymous(
 ) {
 with(this){return _c('p',[_c('strong',[_v("Command fails (invalid_date_format):")]),_v(" "),_c('em',[_v("Please provide the date in the format: yyyy-MM-dd.")])])}
@@ -368,7 +368,7 @@ with(this){return _c('p',[_c('strong',[_v("Command fails (invalid_date_format):"
 with(this){return _c('h3',{attrs:{"id":"view-all-deliveries"}},[_v("View all deliveries"),_c('a',{staticClass:"fa fa-anchor",attrs:{"href":"#view-all-deliveries","onclick":"event.stopPropagation()"}})])}
 },function anonymous(
 ) {
-with(this){return _c('p',[_c('strong',[_v("Format:")]),_v(" "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("delivery list [--status STATUS] [--customer CUSTOMER_ID] [--date DELIVERY_DATE]  [--sort SORT]")])])}
+with(this){return _c('p',[_c('strong',[_v("Format:")]),_v(" "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("delivery list [--status STATUS] [--customer CUSTOMER_ID] [--date EXPECTED_DELIVERY_DATE]  [--sort SORT]")])])}
 },function anonymous(
 ) {
 with(this){return _c('p',[_c('strong',[_v("Example:")]),_v(" "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("delivery list --status created --customer 1 --date 2023-12-12 --sort desc")])])}
@@ -383,10 +383,10 @@ with(this){return _c('p',[_c('em',[_v("STATUS")]),_v(": CREATED/SHIPPED/COMPLETE
 with(this){return _c('p',[_c('em',[_v("CUSTOMER_ID")]),_v(": Integer")])}
 },function anonymous(
 ) {
-with(this){return _c('p',[_c('em',[_v("DELIVERY_DATE")]),_v(": Delivery Date String in yyyy-MM-dd format or "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("today")]),_v(" for today’s date")])}
+with(this){return _c('p',[_c('em',[_v("EXPECTED_DELIVERY_DATE")]),_v(": Expected Delivery Date String in YYYY-MM-DD format or "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("today")]),_v(" for today’s date")])}
 },function anonymous(
 ) {
-with(this){return _c('p',[_c('em',[_v("SORT")]),_v(": String of either "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("asc")]),_v(" for ascending or "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("desc")]),_v(" for descending or defaults to sort by delivery date.")])}
+with(this){return _c('p',[_c('em',[_v("SORT")]),_v(": String of either "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("asc")]),_v(" for ascending or "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("desc")]),_v(" for descending or defaults to sort by expected delivery date.")])}
 },function anonymous(
 ) {
 with(this){return _c('p',[_c('strong',[_v("Command succeeds (>0 deliveries):")]),_v(" "),_c('a',{attrs:{"href":"/tp/images/delivery/delivery_list.png","target":"_self"}},[_c('img',{staticClass:"img-fluid",attrs:{"src":"/tp/images/delivery/delivery_list.png","alt":""}})])])}
@@ -461,7 +461,7 @@ with(this){return _c('p',[_c('em',[_v("Invalid command format!")]),_c('br'),_v("
 with(this){return _c('h4',{attrs:{"id":"update-delivery-details"}},[_v("Update delivery details"),_c('a',{staticClass:"fa fa-anchor",attrs:{"href":"#update-delivery-details","onclick":"event.stopPropagation()"}})])}
 },function anonymous(
 ) {
-with(this){return _c('p',[_c('strong',[_v("Format:")]),_v(" "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("delivery edit DELIVERY_ID [--name DELIVERY_NAME] [--customer CUSTOMER_ID] [--date DELIVERY_DATE] [--status STATUS] [--note NOTE]")])])}
+with(this){return _c('p',[_c('strong',[_v("Format:")]),_v(" "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("delivery edit DELIVERY_ID [--name DELIVERY_NAME] [--customer CUSTOMER_ID] [--date EXPECTED_DELIVERY_DATE] [--status STATUS] [--note NOTE]")])])}
 },function anonymous(
 ) {
 with(this){return _c('p',[_c('strong',[_v("Example:")]),_v(" "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("delivery edit 1001 --name Chocolate Cake --customer 2 --date 2024-12-12 --status CANCELLED --note Customer changed his mind.")])])}
@@ -479,7 +479,7 @@ with(this){return _c('p',[_c('em',[_v("DELIVERY_NAME:")]),_v(" String")])}
 with(this){return _c('p',[_c('em',[_v("CUSTOMER_ID:")]),_v(" Integer")])}
 },function anonymous(
 ) {
-with(this){return _c('p',[_c('em',[_v("DELIVERY_DATE:")]),_v(" Delivery Date String in yyyy-MM-dd format or "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("today")]),_v(" for today’s date")])}
+with(this){return _c('p',[_c('em',[_v("EXPECTED_DELIVERY_DATE:")]),_v(" Expected Delivery Date String in YYYY-MM-DD format or "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("today")]),_v(" for today’s date")])}
 },function anonymous(
 ) {
 with(this){return _c('p',[_c('em',[_v("STATUS:")]),_v(" Either "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("CREATED")]),_v("/"),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("SHIPPED")]),_v("/"),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("COMPLETED")]),_v("/"),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("CANCELLED")])])}
@@ -620,6 +620,6 @@ with(this){return _c('p',[_c('strong',[_v("Format:")]),_v(" "),_c('code',{pre:tr
 with(this){return _c('p',[_c('strong',[_v("Before:")]),_v(" "),_c('a',{attrs:{"href":"/tp/images/customer/customerList.png","target":"_self"}},[_c('img',{staticClass:"img-fluid",attrs:{"src":"/tp/images/customer/customerList.png","alt":""}})]),_v(" "),_c('strong',[_v("After:")]),_v(" "),_c('a',{attrs:{"href":"/tp/images/clear_after.png","target":"_self"}},[_c('img',{staticClass:"img-fluid",attrs:{"src":"/tp/images/clear_after.png","alt":""}})]),_v(" "),_c('a',{attrs:{"href":"#table-of-contents"}},[_v("↑ Back to Table of Contents")])])}
 },function anonymous(
 ) {
-with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.1.0")]),_v(", generated on Tue, 31 Oct 2023, 21:56:29 GMT+8]")])])])}
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.1.0")]),_v(", generated on Tue, 31 Oct 2023, 22:22:12 GMT+8]")])])])}
 }];
   
