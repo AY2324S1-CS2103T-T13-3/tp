@@ -119,6 +119,7 @@
       "src": "UserGuide.md",
       "headings": {
         "user-guide-for-homeboss": "User Guide for HomeBoss",
+        "about-this-user-guide": "About this User Guide",
         "navigating-the-user-guide": "Navigating the User Guide",
         "table-of-contents": "Table of Contents",
         "getting-started": "Getting Started",
@@ -150,7 +151,11 @@
         "create-a-note-for-a-delivery": "Create a note for a delivery",
         "add-customer-data-to-delivery-coming-soon-in-v1-3": "Add customer data to delivery [Coming Soon in v1.3]",
         "delete-delivery": "Delete delivery",
-        "remove-customer-from-delivery-coming-soon-in-v1-3": "Remove customer from delivery [Coming Soon in v1.3]"
+        "remove-customer-from-delivery-coming-soon-in-v1-3": "Remove customer from delivery [Coming Soon in v1.3]",
+        "miscellaneous-2": "Miscellaneous",
+        "help": "Help",
+        "exit": "Exit",
+        "clear": "Clear"
       },
       "headingKeywords": {}
     },
