@@ -155,7 +155,8 @@
         "help": "Help",
         "exit": "Exit",
         "clear": "Clear",
-        "faq": "FAQ"
+        "faq": "FAQ",
+        "command-summary-2": "Command Summary"
       },
       "headingKeywords": {}
     },
