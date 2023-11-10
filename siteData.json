@@ -119,8 +119,7 @@
     {
       "src": "UserGuide.md",
       "headings": {
-        "user-guide": "User Guide",
-        "about-homeboss": "About HomeBoss",
+        "introduction": "Introduction",
         "table-of-contents": "Table of Contents",
         "about-this-user-guide": "About this User Guide",
         "navigating-the-user-guide": "Navigating the User Guide",
@@ -159,6 +158,7 @@
         "view-details-of-a-delivery": "View details of a Delivery",
         "view-a-list-of-deliveries": "View a list of Deliveries",
         "find-deliveries": "Find Deliveries",
+        "update-details-of-a-delivery": "Update details of a Delivery",
         "update-status-of-a-delivery": "Update status of a Delivery",
         "create-a-note-for-a-delivery": "Create a note for a Delivery",
         "delete-a-delivery": "Delete a Delivery",
