@@ -1529,6 +1529,6 @@ with(this){return _c('h3',{attrs:{"id":"achievements"}},[_v("Achievements"),_c('
 with(this){return _c('ul',[_c('li',[_v("Added security feature to prevent unauthorised access to the application.")]),_v(" "),_c('li',[_v("Displaying the list of Customers and list of Deliveries using the same panel.")]),_v(" "),_c('li',[_v("Creating a new storage for Deliveries that has references to Customer.")]),_v(" "),_c('li',[_v("A refreshing look of the UI.")]),_v(" "),_c('li',[_v("New features such as filtering and sorting of deliveries.")]),_v(" "),_c('li',[_v("Increasing code coverage to 83%.")])])}
 },function anonymous(
 ) {
-with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.1.0")]),_v(", generated on Sun, 12 Nov 2023, 15:42:35 GMT+8]")])])])}
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.1.0")]),_v(", generated on Sun, 12 Nov 2023, 15:59:10 GMT+8]")])])])}
 }];
   
