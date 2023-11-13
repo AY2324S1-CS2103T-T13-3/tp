@@ -10,10 +10,10 @@ start
 if () then ([else])
     :ParseException: Invalid Command Format;
     stop
-([all fields are filled]) elseif () then ([else])
+( [all fields are filled]) elseif () then ([else])
     :ParseException: Password Mismatch;
     stop
-([password match confirm password]) elseif () then ([stored user already exists])
+( [password match confirm password]) elseif () then ([stored user already exists])
     :CommandException: Already Have Account;
     stop
 else ( [else])

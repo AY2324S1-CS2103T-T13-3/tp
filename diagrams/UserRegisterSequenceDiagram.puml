@@ -84,7 +84,7 @@ activate Model
 Model --> UserRegisterCommand
 deactivate Model
 
-UserRegisterCommand -> Model : updateFilteredPersonList(PREDICATE_SHOW_ALL_CUSTOMERS)
+UserRegisterCommand -> Model : showAllFilteredCustomerList()
 activate Model
 
 Model --> UserRegisterCommand
