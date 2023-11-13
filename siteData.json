@@ -60,7 +60,7 @@
         "view-delivery-feature": "View Delivery Feature",
         "user-login-command": "User Login Command",
         "user-logout-command": "User Logout Command",
-        "add-customer-command": "Add Customer Command",
+        "customer-add-command": "Customer Add Command",
         "customer-edit-command": "Customer Edit Command",
         "delivery-add-command": "Delivery Add Command",
         "proposed-undo-redo-feature": "[Proposed] Undo/redo feature",
