@@ -830,7 +830,7 @@ with(this){return _c('ol',[_c('li',[_c('p',[_v("Logged-in Owner types in command
 with(this){return _c('p',[_c('strong',[_v("Extensions:")])])}
 },function anonymous(
 ) {
-with(this){return _c('ul',[_c('li',[_c('p',[_v("1a. Logged-in Owner does not specify the id.")]),_v(" "),_c('ul',[_c('li',[_c('p',[_v("1a1. CMS requests Logged-in Owner to key in an id.")]),_v(" "),_c('p',[_v("Use Case ends.")])])])]),_v(" "),_c('li',[_c('p',[_v("1b. Logged-in Owner specifies a customer id that does not exist.")]),_v(" "),_c('ul',[_c('li',[_c('p',[_v("1b1. CMS displays a message that customer id does not exist.")]),_v(" "),_c('p',[_v("Use Case ends.")])])])])])}
+with(this){return _c('ul',[_c('li',[_c('p',[_v("1a. Logged-in Owner does not specify the id.")]),_v(" "),_c('ul',[_c('li',[_c('p',[_v("1a1. CMS requests Logged-in Owner to specify all required fields.")]),_v(" "),_c('p',[_v("Use Case ends.")])])])]),_v(" "),_c('li',[_c('p',[_v("1b. Logged-in Owner specifies an invalid Customer.")]),_v(" "),_c('ul',[_c('li',[_c('p',[_v("1b1. CMS displays an error to Logged-in Owner that the specified customer does not exist.")]),_v(" "),_c('p',[_v("Use Case ends.")])])])])])}
 },function anonymous(
 ) {
 with(this){return _c('h4',{attrs:{"id":"use-case-uc09-sort-customers"}},[_c('strong',[_v("Use Case: UC09 - Sort customers")]),_c('a',{staticClass:"fa fa-anchor",attrs:{"href":"#use-case-uc09-sort-customers","onclick":"event.stopPropagation()"}})])}
@@ -1028,7 +1028,7 @@ with(this){return _c('ol',[_c('li',[_c('p',[_v("Logged-in Owner types command to
 with(this){return _c('p',[_c('strong',[_v("Extensions:")])])}
 },function anonymous(
 ) {
-with(this){return _c('ul',[_c('li',[_c('p',[_v("1a. Command has missing fields.")]),_v(" "),_c('ul',[_c('li',[_c('p',[_v("1a1. DMS displays an error to Logged-in Owner to specify all required fields.")]),_v(" "),_c('p',[_v("Use Case Ends.")])])])])])}
+with(this){return _c('ul',[_c('li',[_c('p',[_v("1a. Command has missing fields.")]),_v(" "),_c('ul',[_c('li',[_c('p',[_v("1a1. DMS displays an error to Logged-in Owner to specify all required fields.")]),_v(" "),_c('p',[_v("Use Case Ends.")])])])]),_v(" "),_c('li',[_c('p',[_v("1b. Command specifies an invalid Delivery.")]),_v(" "),_c('ul',[_c('li',[_c('p',[_v("1b1. DMS displays an error to Logged-in Owner that the specified Delivery does not exist.")]),_v(" "),_c('p',[_v("Use Case Ends.")])])])]),_v(" "),_c('li',[_c('p',[_v("1c. Command specifies an invalid note.")]),_v(" "),_c('ul',[_c('li',[_c('p',[_v("1c1. DMS informs the logged-in owner of an invalid note being entered.")]),_v(" "),_c('p',[_v("Use Case Ends.")])])])])])}
 },function anonymous(
 ) {
 with(this){return _c('h4',{attrs:{"id":"use-case-uc15-delivery-list"}},[_c('strong',[_v("Use case:")]),_v(" UC15 - Delivery List"),_c('a',{staticClass:"fa fa-anchor",attrs:{"href":"#use-case-uc15-delivery-list","onclick":"event.stopPropagation()"}})])}
@@ -1280,7 +1280,7 @@ with(this){return _c('ol',[_c('li',[_c('p',[_v("Logged-in owner types command to
 with(this){return _c('p',[_c('strong',[_v("Extensions")])])}
 },function anonymous(
 ) {
-with(this){return _c('ul',[_c('li',[_c('p',[_v("1a. Logged-in owner did not specify the delivery id or delivery status.")]),_v(" "),_c('ul',[_c('li',[_c('p',[_v("1a1. DMS informs the logged-in owner of the missing field.")]),_v(" "),_c('p',[_v("Use case ends.")])])])]),_v(" "),_c('li',[_c('p',[_v("1b. Logged-in owner specified a delivery id that does not exist.")]),_v(" "),_c('ul',[_c('li',[_c('p',[_v("1b1. DMS informs the logged-in owner of an invalid delivery id being entered.")]),_v(" "),_c('p',[_v("Use case ends.")])])])]),_v(" "),_c('li',[_c('p',[_v("1c. Logged-in owner specified an invalid delivery status.")]),_v(" "),_c('ul',[_c('li',[_c('p',[_v("1c1. DMS informs the logged-in owner of an invalid delivery status being entered.")]),_v(" "),_c('p',[_v("Use case ends.")])])])])])}
+with(this){return _c('ul',[_c('li',[_c('p',[_v("1a. Command has missing fields.")]),_v(" "),_c('ul',[_c('li',[_c('p',[_v("1a1. DMS displays an error to Logged-in Owner to specify all required fields.")]),_v(" "),_c('p',[_v("Use case ends.")])])])]),_v(" "),_c('li',[_c('p',[_v("1b. Logged-in owner specified an invalid Delivery.")]),_v(" "),_c('ul',[_c('li',[_c('p',[_v("1b1. DMS displays an error to Logged-in Owner that the specified Delivery does not exist.")]),_v(" "),_c('p',[_v("Use case ends.")])])])]),_v(" "),_c('li',[_c('p',[_v("1c. Logged-in owner specified an invalid delivery status.")]),_v(" "),_c('ul',[_c('li',[_c('p',[_v("1c1. DMS informs the logged-in owner of an invalid delivery status being entered.")]),_v(" "),_c('p',[_v("Use case ends.")])])])])])}
 },function anonymous(
 ) {
 with(this){return _c('h4',{attrs:{"id":"use-case-uc24-update-delivery-details"}},[_v("Use Case: UC24 - Update delivery details"),_c('a',{staticClass:"fa fa-anchor",attrs:{"href":"#use-case-uc24-update-delivery-details","onclick":"event.stopPropagation()"}})])}
@@ -1529,6 +1529,6 @@ with(this){return _c('h3',{attrs:{"id":"achievements"}},[_v("Achievements"),_c('
 with(this){return _c('ul',[_c('li',[_v("Added security feature to prevent unauthorised access to the application.")]),_v(" "),_c('li',[_v("Displaying the list of Customers and list of Deliveries using the same panel.")]),_v(" "),_c('li',[_v("Creating a new storage for Deliveries that has references to Customer.")]),_v(" "),_c('li',[_v("A refreshing look of the UI.")]),_v(" "),_c('li',[_v("New features such as filtering and sorting of deliveries.")]),_v(" "),_c('li',[_v("Increasing code coverage to 83%.")])])}
 },function anonymous(
 ) {
-with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.1.0")]),_v(", generated on Mon, 13 Nov 2023, 8:54:54 GMT+8]")])])])}
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.1.0")]),_v(", generated on Mon, 13 Nov 2023, 12:22:48 GMT+8]")])])])}
 }];
   
