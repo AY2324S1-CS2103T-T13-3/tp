@@ -31,14 +31,13 @@ AddressBookParser -> CustomerAddCommandParser : parse(arg)
 activate CustomerAddCommandParser
 
 create Customer
-CustomerAddCommandParser -> Customer : new Customer(name, phone, email, address)
-activate Customer
+CustomerAddCommandParser -> Customer
 
 Customer --> CustomerAddCommandParser
 deactivate Customer
 
 create CustomerAddCommand
-CustomerAddCommandParser -> CustomerAddCommand : new CustomerAddCommand(c)
+CustomerAddCommandParser -> CustomerAddCommand
 activate CustomerAddCommand
 
 CustomerAddCommand --> CustomerAddCommandParser
@@ -71,14 +70,13 @@ deactivate Model
 CustomerAddCommand -> Model : addCustomer(c)
 activate Model
 
-Model --> CustomerAddCommand
 deactivate Model
 
 create CommandResult
 CustomerAddCommand -> CommandResult
 activate CommandResult
 
-CommandResult --> CustomerAddCommand
+CommandResult --> CustomerAddCommand : result
 deactivate CommandResult
 
 CustomerAddCommand --> LogicManager : result

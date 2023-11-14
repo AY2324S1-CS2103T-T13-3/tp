@@ -7,8 +7,8 @@ box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
 participant ":DeliveryListCommandParser" as DeliveryListCommandParser LOGIC_COLOR
-participant ":DeliveryListCommand" as DeliveryListCommand LOGIC_COLOR
-participant ":CommandResult" as CommandResult LOGIC_COLOR
+participant "deliveryListCommand:DeliveryListCommand" as DeliveryListCommand LOGIC_COLOR
+participant "result:CommandResult" as CommandResult LOGIC_COLOR
 end box
 
 box Model MODEL_COLOR_T1
@@ -30,10 +30,10 @@ activate DeliveryListCommandParser
 DeliveryListCommandParser --> AddressBookParser
 deactivate DeliveryListCommandParser
 
-AddressBookParser -> DeliveryListCommandParser : parse(input)
+AddressBookParser -> DeliveryListCommandParser : parse(args)
 activate DeliveryListCommandParser
 
-DeliveryListCommandParser -> DeliveryListCommandParser ++ : parseDeliveryListCommand()
+DeliveryListCommandParser -> DeliveryListCommandParser ++ : parseDeliveryListCommand(argMultimap)
 create DeliveryListCommand
 DeliveryListCommandParser -> DeliveryListCommand
 activate DeliveryListCommand
@@ -53,7 +53,7 @@ destroy DeliveryListCommandParser
 AddressBookParser --> LogicManager : deliveryListCommand
 deactivate AddressBookParser
 
-LogicManager -> DeliveryListCommand : execute()
+LogicManager -> DeliveryListCommand : execute(model)
 activate DeliveryListCommand
 
 DeliveryListCommand -> Model : getUserLoginStatus()
@@ -72,12 +72,11 @@ Model --> DeliveryListCommand: filteredDeliveries
 deactivate Model
 
 DeliveryListCommand -> DeliveryListCommand ++: createDeliveryListSort()
-return sort
+return sortOrder
 
-DeliveryListCommand -> Model: updateSortedDeliveryList(sort)
+DeliveryListCommand -> Model: updateSortedDeliveryList(sortOrder)
 activate Model
 
-Model --> DeliveryListCommand: sortedDeliveries
 deactivate Model
 
 
@@ -88,12 +87,15 @@ create CommandResult
 DeliveryListCommand -> CommandResult
 activate CommandResult
 
-CommandResult --> DeliveryListCommand
+CommandResult --> DeliveryListCommand : result
 deactivate CommandResult
 
 DeliveryListCommand --> LogicManager : result
 deactivate DeliveryListCommand
 
-[<--LogicManager
+DeliveryListCommand -[hidden]-> LogicManager
+destroy DeliveryListCommand
+
+[<--LogicManager : result
 deactivate LogicManager
 @enduml

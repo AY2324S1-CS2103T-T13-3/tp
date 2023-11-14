@@ -7,17 +7,17 @@ participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
 participant ":DeliveryCreateNoteCommandParser" as DeliveryCreateNoteCommandParser LOGIC_COLOR
 participant "d:DeliveryCreateNoteCommand" as DeliveryCreateNoteCommand LOGIC_COLOR
-participant ":CommandResult" as CommandResult LOGIC_COLOR
+participant "result:CommandResult" as CommandResult LOGIC_COLOR
 end box
 
 box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
 end box
 
-[-> LogicManager : execute("delivery note 1 --note A note")
+[-> LogicManager : execute(input)
 activate LogicManager
 
-LogicManager -> AddressBookParser : parseCommand("delivery note 1 --note A note")
+LogicManager -> AddressBookParser : parseCommand(input)
 activate AddressBookParser
 
 create DeliveryCreateNoteCommandParser
@@ -27,7 +27,7 @@ activate DeliveryCreateNoteCommandParser
 DeliveryCreateNoteCommandParser --> AddressBookParser
 deactivate DeliveryCreateNoteCommandParser
 
-AddressBookParser -> DeliveryCreateNoteCommandParser : parse("1 --note A note")
+AddressBookParser -> DeliveryCreateNoteCommandParser : parse(args)
 activate DeliveryCreateNoteCommandParser
 
 create DeliveryCreateNoteCommand
@@ -46,7 +46,7 @@ destroy DeliveryCreateNoteCommandParser
 AddressBookParser --> LogicManager : d
 deactivate AddressBookParser
 
-LogicManager -> DeliveryCreateNoteCommand : execute()
+LogicManager -> DeliveryCreateNoteCommand : execute(model)
 activate DeliveryCreateNoteCommand
 
 DeliveryCreateNoteCommand -> Model : getUserLoginStatus()
@@ -73,23 +73,20 @@ activate Model
 Model --> DeliveryCreateNoteCommand
 deactivate Model
 
-DeliveryCreateNoteCommand -> Model : updateFilteredDeliveryList(PREDICATE_SHOW_ALL_DELIVERIES)
-activate Model
-
-Model --> DeliveryCreateNoteCommand
-deactivate Model
-
 create CommandResult
 DeliveryCreateNoteCommand -> CommandResult
 activate CommandResult
 
-CommandResult --> DeliveryCreateNoteCommand
+CommandResult --> DeliveryCreateNoteCommand : result
 deactivate CommandResult
 
 DeliveryCreateNoteCommand --> LogicManager : result
 deactivate DeliveryCreateNoteCommand
 
-[<--LogicManager
+DeliveryCreateNoteCommand -[hidden]-> LogicManager
+destroy DeliveryCreateNoteCommand
+
+[<--LogicManager : result
 deactivate LogicManager
 
 @enduml

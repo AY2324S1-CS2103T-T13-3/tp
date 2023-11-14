@@ -40,26 +40,23 @@ deactivate Model
 UserLogoutCommand -> Model : setLogoutSuccess()
 activate Model
 
-Model --> UserLogoutCommand
 deactivate Model
 
 UserLogoutCommand -> Model : clearFilteredDeliveryList()
 activate Model
 
-Model --> UserLogoutCommand
 deactivate Model
 
 UserLogoutCommand -> Model : clearFilteredCustomerList()
 activate Model
 
-Model --> UserLogoutCommand
 deactivate Model
 
 create CommandResult
 UserLogoutCommand -> CommandResult
 activate CommandResult
 
-CommandResult --> UserLogoutCommand
+CommandResult --> UserLogoutCommand : result
 deactivate CommandResult
 
 UserLogoutCommand --> LogicManager : result

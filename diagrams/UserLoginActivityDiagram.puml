@@ -4,24 +4,25 @@ skinparam ActivityFontSize 15
 skinparam ArrowFontSize 12
 !pragma useVerticalIf on
 start
-:User executes login command;
-:Parse command string;
+:User executes <i>login</i> command;
+partition UserLoginCommand
 
-if () then ([else])
-    :ParseException: Invalid Command Format;
+
+
+if () then ([user has not registered])
+    :CommandException: No Registered Account Found;
     stop
-( [all fields are filled]) elseif () then ([user is already logged in])
+    ( [else]) elseif () then ([user is already logged in])
     :CommandException: Already Logged In;
     stop
-( [else]) elseif () then ([else])
+( [else]) elseif () then ([user credentials do not match with the registered account])
     :CommandException: Wrong Credentials;
     stop
-else ( [fields matches
-    stored user])
+else ( [else])
 
 endif
-:User login command is executed successfully.
-User is now logged in.;
+:User is now logged in.;
+
 
 stop
 @enduml

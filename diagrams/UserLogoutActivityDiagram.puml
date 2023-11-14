@@ -4,15 +4,18 @@ skinparam ActivityFontSize 15
 skinparam ArrowFontSize 12
 !pragma useVerticalIf on
 start
-:User executes logout command;
-:Parse command string;
+
+:User executes <i>logout</i> command;
+
+partition UserLogoutCommand
+
 
 if () then ([user is already logged out])
     :CommandException: Already Logged Out;
     stop
 else ([else])
-    :User logout command is executed successfully.
-    User is now logged out.;
+    :User is now logged out.;
+
 endif
 
 stop

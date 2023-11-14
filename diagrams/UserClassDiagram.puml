@@ -8,7 +8,7 @@ skinparam classAttributeIconSize 0
 Package User as ModelPackage <<Rectangle>>{
 Class User {
 <color: #FFFFFF>- secretQuestion: String<color: #FFFFFF>
-<color: #FFFFFF>- secretAnswer: String
+<color: #FFFFFF>- answer: String
 }
 
 Class Username

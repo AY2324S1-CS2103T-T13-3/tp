@@ -5,74 +5,40 @@ skinparam ArrowFontSize 12
 
 !pragma useVerticalIf on
 start
-:User enters <i>delivery list --status COMPLETED \n <i> --customer 1</i> \n <i> --date TODAY </i> \n <i> --sort ASC </i>;
-partition DeliveryListCommandParser {
-    if () then ([else])
-        :ParseException: Invalid Command Format;
-        stop
-        else ([empty preamble])
-        endif
-
-       if () then ([status provided])
-           :Parse delivery status;
-       else ([else])
-       endif
-
-       if () then ([customer id provided])
-           :Parse customer id;
-
-       else ([else])
-       endif
-
-       if () then ([date provided])
-
-           if () then ([date is "TODAY"])
-               :Get today's date;
-
-           else ([else])
-            :Parse date;
-           endif
-
-       else ([else])
-        endif
-
-          if () then ([sort provided])
-                   :Parse sort;
-
-               else ([else])
-               :Set sort by descending;
-               endif
-
-}
+:User executes <i>delivery list</i> command;
 
 partition DeliveryListCommand {
     if () then ([else])
-        :CommandException: User Not Authenticated;
+        : CommandException: User Not Authenticated;
         stop
     else ([user logged in])
 
-    if () then ([status provided])
-        :Add status filter;
+    if () then ( [status \n provided])
+        : Add status filter;
     else ([else])
     endif
 
-    if () then ([customer id provided])
-        :Add customer id filter;
+    if () then ( [customer ID\n provided])
+        : Add Customer ID filter;
     else ([else])
     endif
 
-    if () then ([date provided])
-        :Add expected delivery date filter;
+    if () then ( [date provided])
+        : Add expected Delivery date filter;
     else ([else])
     endif
-        : Filter delivery list according to filters;
-     if () then ([sort provided])
-            :Add sort by provided sort;
+        : Filter Delivery list according to filters;
+    if () then ( [filtered list is empty])
+        : Informs user of empty list;
+        stop
+    else ([else])
+    endif
+    if () then ([sort provided])
+            : Add sort by provided sort;
         else ([else])
-        :Add sort by the default descending;
+        : Add sort by the default descending;
         endif
-        : Sort by expected delivery date;
-        : Return CommandResult;
+        : Sort filtered Delivery list by expected Delivery date;
     endif
 
 }

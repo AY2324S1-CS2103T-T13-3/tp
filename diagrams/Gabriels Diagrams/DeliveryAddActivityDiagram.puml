@@ -1,19 +1,27 @@
 @startuml
+skin rose
+skinparam ActivityFontSize 15
+skinparam ArrowFontSize 12
+
+!pragma useVerticalIf on
 start
-:Key in add command;
+:User executes <i>delivery add</i> command;
 
- if () then ([Provide no/incorrect fields or invalid format])
-  :Error: Invalid command format!;
-  stop
-  elseif () then ([Provide a Expected Delivery Date that is not in the future])
-  :Error: Expected Delivery Date cannot be before today.;
-  stop
-  elseif () then ([Provide an index of an invalid customer])
-  : Error: The person index provided is invalid;
-  stop
+partition DeliveryAddCommand {
+    if () then ([else])
+        :CommandException: User Not Authenticated;
+        stop
+    ( [user logged in]) elseif () then ([else])
+        :CommandException: Invalid Customer ID;
+        stop
+    ( [customer ID found]) elseif () then ([else])
+        :CommandException: Invalid Delivery Date;
+        stop
+    else ( [expected Delivery date is today or after today])
+    endif
+    : Add Delivery;
+}
 
-  else ([Valid format and index provided])
-  endif
-  :Delivery Add Success!;
+stop
 
 @enduml

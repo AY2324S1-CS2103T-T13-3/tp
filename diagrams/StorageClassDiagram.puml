@@ -16,16 +16,15 @@ Class "<<interface>>\nStorage" as Storage
 Class StorageManager
 Class "<<interface>>\nBookStorage<T>" as BookStorage
 Class "<<interface>>\nBookStorage<Customer>" as BookStorageCustomer
-Class "<<interface>>\nBookStorageWithReference<T,R>" as BookStorageWithReference
-Class "<<interface>>\nBookStorageWithReference<Delivery,Customer>" as BookStorageWithReferenceDeliveryCustomer
+Class "{abstract}\nBookStorageWithReference<T, R>" as BookStorageWithReference
+Class "{abstract}\nBookStorageWithReference<Customer, Delivery>" as BookStorageWithReferenceDeliveryCustomer
 BookStorageWithReference -|> BookStorage
 
 
 package "AddressBook Storage" #F4F6F6{
 Class JsonAddressBookStorage
 Class JsonSerializableAddressBook
-Class JsonAdaptedPerson
-Class JsonAdaptedTag
+Class JsonAdaptedCustomer
 }
 
 package "DeliveryBook Storage" #F4F6F6{
@@ -50,11 +49,11 @@ JsonUserPrefsStorage .up.|> UserPrefsStorage
 BookStorageCustomer .up.> BookStorage
 JsonAddressBookStorage .up.|> BookStorageCustomer
 JsonAddressBookStorage ..> JsonSerializableAddressBook
-JsonSerializableAddressBook --> "*" JsonAdaptedPerson
-JsonAdaptedPerson --> "*" JsonAdaptedTag
+JsonSerializableAddressBook --> "*" JsonAdaptedCustomer
+
 
 BookStorageWithReferenceDeliveryCustomer .up..> BookStorageWithReference
-JsonDeliveryBookStorage .up..|> BookStorageWithReferenceDeliveryCustomer
+JsonDeliveryBookStorage -up--|> BookStorageWithReferenceDeliveryCustomer
 JsonDeliveryBookStorage ..> JsonSerializableDeliveryBook
 JsonSerializableDeliveryBook --> "*" JsonAdaptedDelivery
 

@@ -7,8 +7,8 @@ box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
 participant ":DeliveryViewCommandParser" as DeliveryViewCommandParser LOGIC_COLOR
-participant ":DeliveryViewCommand" as DeliveryViewCommand LOGIC_COLOR
-participant ":CommandResult" as CommandResult LOGIC_COLOR
+participant "l:DeliveryViewCommand" as DeliveryViewCommand LOGIC_COLOR
+participant "result:CommandResult" as CommandResult LOGIC_COLOR
 end box
 
 box Model MODEL_COLOR_T1
@@ -35,19 +35,19 @@ create DeliveryViewCommand
 DeliveryViewCommandParser -> DeliveryViewCommand
 activate DeliveryViewCommand
 
-DeliveryViewCommand --> DeliveryViewCommandParser : DeliveryViewCommand
+DeliveryViewCommand --> DeliveryViewCommandParser : l
 deactivate DeliveryViewCommand
 
-DeliveryViewCommandParser --> AddressBookParser : DeliveryViewCommand
+DeliveryViewCommandParser --> AddressBookParser : l
 deactivate DeliveryViewCommandParser
 'Hidden arrow to position the destroy marker below the end of the activation bar.
 DeliveryViewCommandParser -[hidden]-> AddressBookParser
 destroy DeliveryViewCommandParser
 
-AddressBookParser --> LogicManager : DeliveryViewCommand
+AddressBookParser --> LogicManager : l
 deactivate AddressBookParser
 
-LogicManager -> DeliveryViewCommand : execute()
+LogicManager -> DeliveryViewCommand : execute(model)
 activate DeliveryViewCommand
 
 DeliveryViewCommand -> Model : getUserLoginStatus()
@@ -66,12 +66,15 @@ create CommandResult
 DeliveryViewCommand -> CommandResult
 activate CommandResult
 
-CommandResult --> DeliveryViewCommand
+CommandResult --> DeliveryViewCommand : result
 deactivate CommandResult
 
 DeliveryViewCommand --> LogicManager : result
 deactivate DeliveryViewCommand
 
-[<--LogicManager
+DeliveryViewCommand -[hidden]-> LogicManager
+destroy DeliveryViewCommand
+
+[<--LogicManager : result
 deactivate LogicManager
 @enduml

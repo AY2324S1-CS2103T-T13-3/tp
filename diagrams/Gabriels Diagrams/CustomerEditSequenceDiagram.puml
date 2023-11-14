@@ -1,18 +1,19 @@
 @startuml
 !include style.puml
 skinparam ArrowFontStyle plain
+skinparam defaultFontSize 25
 
 box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
 participant ":CustomerEditCommandParser" as CustomerEditCommandParser LOGIC_COLOR
-participant ":CustomerEditDescriptor" as CustomerEditDescriptor LOGIC_COLOR
-participant ":CustomerEditCommand" as CustomerEditCommand LOGIC_COLOR
-participant ":CommandResult" as CommandResult LOGIC_COLOR
+participant "d:CustomerEditDescriptor" as CustomerEditDescriptor LOGIC_COLOR
+participant "c:CustomerEditCommand" as CustomerEditCommand LOGIC_COLOR
+participant "result:CommandResult" as CommandResult LOGIC_COLOR
 end box
 
 box Model MODEL_COLOR_T1
-participant ":Customer" as Customer MODEL_COLOR
+participant "e:Customer" as Customer MODEL_COLOR
 participant ":Model" as Model MODEL_COLOR
 end box
 
@@ -32,64 +33,84 @@ deactivate CustomerEditCommandParser
 AddressBookParser -> CustomerEditCommandParser : parse(args)
 activate CustomerEditCommandParser
 
+CustomerEditCommandParser -> CustomerEditCommandParser : createCustomerEditDescriptor(argMultiMap)
+activate CustomerEditCommandParser
+
 create CustomerEditDescriptor
 CustomerEditCommandParser -> CustomerEditDescriptor
 activate CustomerEditDescriptor
-CustomerEditDescriptor --> CustomerEditCommandParser
+CustomerEditDescriptor --> CustomerEditCommandParser : d
 deactivate CustomerEditDescriptor
+
+CustomerEditCommandParser --> CustomerEditCommandParser : d
+deactivate CustomerEditCommandParser
 
 create CustomerEditCommand
 CustomerEditCommandParser -> CustomerEditCommand
 activate CustomerEditCommand
-CustomerEditCommand --> CustomerEditCommandParser
+CustomerEditCommand --> CustomerEditCommandParser : c
 deactivate CustomerEditCommand
 
-CustomerEditCommandParser --> AddressBookParser : customerEditCommand
-CustomerEditCommandParser -[hidden]-> AddressBookParser
+CustomerEditCommandParser --> AddressBookParser : c
 deactivate CustomerEditCommandParser
 CustomerEditCommandParser -[hidden]-> CustomerEditDescriptor
 destroy CustomerEditCommandParser
 
 
-AddressBookParser --> LogicManager : customerEditCommand
+AddressBookParser --> LogicManager : c
 deactivate AddressBookParser
 
 LogicManager -> CustomerEditCommand : execute(model)
 activate CustomerEditCommand
 
-CustomerEditCommand -> Model : getFilteredCustomerList()
+CustomerEditCommand -> Model : getUserLoginStatus()
+activate Model
+Model --> CustomerEditCommand : loginStatus
+deactivate Model
+
+CustomerEditCommand -> Model : showAllFilteredCustomerList()
 activate Model
 deactivate Model
 
-CustomerEditCommand -> CustomerEditCommand : createEditedCustomer(customer, editCustomerDescriptor)
+CustomerEditCommand -> CustomerEditCommand : createEditedCustomer(customerToEdit, customerEditDescriptor)
 activate CustomerEditCommand
 
 create Customer
 CustomerEditCommand -> Customer
 activate Customer
-deactivate CustomerEditCommand
 
-Customer --> CustomerEditCommand : editedCustomer
+Customer --> CustomerEditCommand : e
+
 deactivate Customer
 
+CustomerEditCommand --> CustomerEditCommand : e
+deactivate CustomerEditCommand
 
-
-CustomerEditCommand -> Model : setCustomer(customer, editedCustomer)
+CustomerEditCommand -> Model : setCustomer(customer, e)
 activate Model
 deactivate Model
 
-CustomerEditCommand -> Model : updateFilteredCustomerList(PREDICATE_SHOW_ALL_CUSTOMERS)
+CustomerEditCommand -> CustomerEditCommand: updateDelivery(model, e)
+activate CustomerEditCommand
+deactivate CustomerEditCommand
+
+CustomerEditCommand -> Model : showAllFilteredCustomerList()
 activate Model
 deactivate Model
 
 create CommandResult
 CustomerEditCommand -> CommandResult
 activate CommandResult
-CommandResult --> CustomerEditCommand : commandResult
+CommandResult --> CustomerEditCommand : result
+deactivate CommandResult
 
-CustomerEditCommand --> LogicManager : commandResult
+CustomerEditCommand --> LogicManager : result
+deactivate CustomerEditCommand
 
-[<--LogicManager
+CustomerEditCommand -[hidden]-> LogicManager
+destroy CustomerEditCommand
+
+[<--LogicManager : result
 deactivate LogicManager
 
 @enduml

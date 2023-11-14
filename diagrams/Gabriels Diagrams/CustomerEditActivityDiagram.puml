@@ -1,25 +1,26 @@
 @startuml
+skin rose
+skinparam ActivityFontSize 15
+skinparam ArrowFontSize 12
+
+!pragma useVerticalIf on
 start
-:Key in edit command;
-
- if () then ([Provide no fields to edit])
-  :Error: At least a field to edit must be provided;
-  stop
-  elseif () then ([Provide zero or a signed integer as index])
-  :Error:  Invalid command format! Parameters: INDEX (must be a positive integer);
-  stop
-  elseif () then ([Provide an index of an invalid customer])
-  : Error: The customer index provided is invalid;
-  stop
-  elseif () then ([Provide the exact same details of the customer]))
-  : Error: This customer already exists in the address book.;
-  stop
-  else ([Valid format and index provided])
-  endif
-  :Customer Edit Success!;
-
+:User executes <i>customer edit</i> command;
+partition CustomerEditCommand {
+    if () then ([else])
+        :CommandException: User Not Authenticated;
+        stop
+    ( [user logged in]) elseif () then ([else])
+        :CommandException: Invalid Customer ID;
+        stop
+    ( [customer ID found]) elseif () then ([else])
+        :CommandException: Duplicate Customer;
+        stop
+    else ( [no changes to phone number\n or unique phone number])
+    endif
+    :Customer edited;
+}
 
 stop
-
 
 @enduml

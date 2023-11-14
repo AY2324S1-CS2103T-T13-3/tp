@@ -43,7 +43,7 @@ activate UserRegisterCommandParser
 UserRegisterCommandParser --> AddressBookParser
 deactivate UserRegisterCommandParser
 
-AddressBookParser -> UserRegisterCommandParser : parse(arg)
+AddressBookParser -> UserRegisterCommandParser : parse(args)
 activate UserRegisterCommandParser
 
 create User
@@ -54,7 +54,7 @@ User --> UserRegisterCommandParser : u
 deactivate User
 
 create UserRegisterCommand
-UserRegisterCommandParser -> UserRegisterCommand : UserRegisterCommand(u)
+UserRegisterCommandParser -> UserRegisterCommand
 activate UserRegisterCommand
 
 UserRegisterCommand --> UserRegisterCommandParser : l
@@ -84,17 +84,13 @@ activate Model
 Model --> UserRegisterCommand
 deactivate Model
 
-UserRegisterCommand -> Model : showAllFilteredCustomerList()
-activate Model
 
-Model --> UserRegisterCommand
-deactivate Model
 
 create CommandResult
 UserRegisterCommand -> CommandResult
 activate CommandResult
 
-CommandResult --> UserRegisterCommand
+CommandResult --> UserRegisterCommand : result
 deactivate CommandResult
 
 UserRegisterCommand --> LogicManager : result

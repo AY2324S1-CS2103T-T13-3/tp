@@ -27,21 +27,21 @@ activate UserLoginCommandParser
 UserLoginCommandParser --> AddressBookParser
 deactivate UserLoginCommandParser
 
-AddressBookParser -> UserLoginCommandParser : parse(arg)
+AddressBookParser -> UserLoginCommandParser : parse(args)
 activate UserLoginCommandParser
 
 create User
-UserLoginCommandParser -> User : new User(username, password, true)
+UserLoginCommandParser -> User : User(username, password, true)
 activate User
 
 User --> UserLoginCommandParser
 deactivate User
 
 create UserLoginCommand
-UserLoginCommandParser -> UserLoginCommand : new UserLoginCommand(u)
+UserLoginCommandParser -> UserLoginCommand
 activate UserLoginCommand
 
-UserLoginCommand --> UserLoginCommandParser
+UserLoginCommand --> UserLoginCommandParser : l
 deactivate UserLoginCommand
 
 UserLoginCommandParser --> AddressBookParser : l
@@ -77,20 +77,18 @@ deactivate Model
 UserLoginCommand -> Model : setLoginSuccess()
 activate Model
 
-Model --> UserLoginCommand
 deactivate Model
 
 UserLoginCommand -> Model : showAllFilteredCustomerList()
 activate Model
 
-Model --> UserLoginCommand
 deactivate Model
 
 create CommandResult
 UserLoginCommand -> CommandResult
 activate CommandResult
 
-CommandResult --> UserLoginCommand
+CommandResult --> UserLoginCommand : result
 deactivate CommandResult
 
 UserLoginCommand --> LogicManager : result

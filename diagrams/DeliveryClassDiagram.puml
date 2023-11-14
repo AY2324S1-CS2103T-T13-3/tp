@@ -16,8 +16,13 @@ Class DeliveryDate
 Class DeliveryStatus
 Class Note
 
-Class DeliveryStatus <<Enumeration>>{
+Class DeliveryStatus <<enumeration>>{
+<color: #FFFFFF>CREATED
+<color: #FFFFFF>SHIPPED
+<color: #FFFFFF>CANCELLED
+<color: #FFFFFF>COMPLETED
 }
+show DeliveryStatus fields
 Class I<<HIDDEN>> #FFFFFF
 }
 

@@ -59,12 +59,13 @@ create CommandResult
 CustomerDeleteCommand -> CommandResult
 activate CommandResult
 
-CommandResult --> CustomerDeleteCommand
+CommandResult --> CustomerDeleteCommand : result
 deactivate CommandResult
 
 CustomerDeleteCommand --> LogicManager : result
 deactivate CustomerDeleteCommand
-
-[<--LogicManager
+CustomerDeleteCommand -[hidden]-> LogicManager
+destroy CustomerDeleteCommand
+[<--LogicManager : result
 deactivate LogicManager
 @enduml

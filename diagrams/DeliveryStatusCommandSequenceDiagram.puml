@@ -7,17 +7,17 @@ participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
 participant ":DeliveryStatusCommandParser" as DeliveryStatusCommandParser LOGIC_COLOR
 participant "d:DeliveryStatusCommand" as DeliveryStatusCommand LOGIC_COLOR
-participant ":CommandResult" as CommandResult LOGIC_COLOR
+participant "result:CommandResult" as CommandResult LOGIC_COLOR
 end box
 
 box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
 end box
 
-[-> LogicManager : execute("delivery status completed 1")
+[-> LogicManager : execute(input)
 activate LogicManager
 
-LogicManager -> AddressBookParser : parseCommand("delivery status completed 1")
+LogicManager -> AddressBookParser : parseCommand(input)
 activate AddressBookParser
 
 create DeliveryStatusCommandParser
@@ -27,7 +27,7 @@ activate DeliveryStatusCommandParser
 DeliveryStatusCommandParser --> AddressBookParser
 deactivate DeliveryStatusCommandParser
 
-AddressBookParser -> DeliveryStatusCommandParser : parse("completed 1")
+AddressBookParser -> DeliveryStatusCommandParser : parse(args)
 activate DeliveryStatusCommandParser
 
 create DeliveryStatusCommand
@@ -46,7 +46,7 @@ destroy DeliveryStatusCommandParser
 AddressBookParser --> LogicManager : d
 deactivate AddressBookParser
 
-LogicManager -> DeliveryStatusCommand : execute()
+LogicManager -> DeliveryStatusCommand : execute(model)
 activate DeliveryStatusCommand
 
 DeliveryStatusCommand -> Model : getUserLoginStatus()
@@ -73,23 +73,20 @@ activate Model
 Model --> DeliveryStatusCommand
 deactivate Model
 
-DeliveryStatusCommand -> Model : updateFilteredDeliveryList(PREDICATE_SHOW_ALL_DELIVERIES)
-activate Model
-
-Model --> DeliveryStatusCommand
-deactivate Model
-
 create CommandResult
 DeliveryStatusCommand -> CommandResult
 activate CommandResult
 
-CommandResult --> DeliveryStatusCommand
+CommandResult --> DeliveryStatusCommand : result
 deactivate CommandResult
 
 DeliveryStatusCommand --> LogicManager : result
 deactivate DeliveryStatusCommand
 
-[<--LogicManager
+DeliveryStatusCommand -[hidden]-> LogicManager
+destroy DeliveryStatusCommand
+
+[<--LogicManager : result
 deactivate LogicManager
 
 @enduml
